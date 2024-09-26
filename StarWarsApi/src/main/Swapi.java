@@ -35,6 +35,7 @@ public class Swapi {
     	Scanner sc = new Scanner(System.in);
         int election = 0;
         String apiUrl = "https://swapi.dev/api";
+        String extension = "";
 
         // Bucle para seguir mostrando el menú hasta que el usuario decida salir
         while (true) {
@@ -76,29 +77,30 @@ public class Swapi {
             // Selección de la API según la elección
             switch (election) {
                 case 1:
-                    apiUrl = apiUrl + "/planets/";
+                    extension = "/planets/";
                     break;
                 case 2:
-                    apiUrl = apiUrl + "/people/";
+                	extension = "/people/";
                     break;
                 case 3:
-                    apiUrl = apiUrl + "/films/";
+                	extension = "/films/";
                     break;
                 case 4:
-                    apiUrl = apiUrl + "/starships/";
+                	extension = "/starships/";
                     break;
                 case 5:
-                    apiUrl = apiUrl + "/vehicles/";
+                	extension = "/vehicles/";
                     break;
                 case 6:
-                    apiUrl = apiUrl + "/species/";
+                	extension = "/species/";
                     break;
             }
 
             // Hacer la consulta a la API
             try {
                 // Crear un objeto URL
-                URL url = new URL(apiUrl);
+                URL url = new URL(apiUrl + extension);
+                extension = "";
 
                 // Abrir una conexión a la URL
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
